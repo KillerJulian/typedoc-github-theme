@@ -1,0 +1,51 @@
+name: ☁️ Release NPM
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  npm:
+    name: ☁️ Release NPM
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 📦 Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: 🛠️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'latest'
+          cache: 'pnpm'
+
+      - name: ⚡ Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: 🔨 Build library
+        run: pnpm build:lib
+
+      - name: 📦 Pack library
+        run: mv $(pnpm pack) package.tgz
+
+      - name: ☁️ Publish to NPM
+        uses: JS-DevTools/npm-publish@v3
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+
+      - name: ☁️ Create a release
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          name: Release ${{ github.ref }}
+          files: package.tgz

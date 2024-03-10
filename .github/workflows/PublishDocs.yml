@@ -1,0 +1,55 @@
+name: 📖 Publish documentation
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: false
+
+jobs:
+  docs:
+    name: 📖 Publish documentation
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 📦 Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: 🛠️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'latest'
+          cache: 'pnpm'
+
+      - name: ⚡ Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: 🔨 Build library and docs
+        run: pnpm build
+
+      - name: ⚙️ Configure pages
+        uses: actions/configure-pages@v4
+
+      - name: 📡 Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+      - name: ☁️ Publish documentation
+        id: deployment
+        uses: actions/deploy-pages@v4

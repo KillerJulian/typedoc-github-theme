@@ -1,0 +1,10 @@
+# Node modules
+.pnpm-store
+node_modules
+
+# Logs
+*.log*
+
+# Other
+docs
+dist

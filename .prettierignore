@@ -1,0 +1,11 @@
+# Node modules
+.pnpm-store
+node_modules
+pnpm-lock.yaml
+
+# Logs
+*.log*
+
+# Other
+docs
+dist

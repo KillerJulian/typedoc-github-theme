@@ -1,0 +1,57 @@
+name: 🔎 Check code
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - '*'
+      - '!draft/*'
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  build:
+    name: 🏗️ Build project
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 📦 Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: 🛠️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'latest'
+          cache: 'pnpm'
+
+      - name: ⚡ Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: 🔨 Build library
+        run: pnpm build:lib
+
+  lint:
+    name: 🔍 Lint code
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 📦 Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: 🛠️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'latest'
+          cache: 'pnpm'
+
+      - name: ⚡ Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: 🔎 Run linter
+        run: pnpm lint

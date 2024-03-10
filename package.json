@@ -1,0 +1,40 @@
+{
+	"name": "typedoc-github-theme",
+	"description": "",
+	"version": "0.0.0",
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"repository": "https://github.com/KillerJulian/typedoc-github-theme",
+	"homepage": "https://killerjulian.github.io/typedoc-github-theme/",
+	"author": "KillerJulian <info@killerjulian.de>",
+	"license": "MIT",
+	"packageManager": "pnpm@9.5.0",
+	"dependencies": {},
+	"peerDependencies": {
+		"typedoc": "^0.26.4"
+	},
+	"devDependencies": {
+		"@types/node": "^18.19.41",
+		"eslint": "9.7.0",
+		"eslint-config-prettier": "9.1.0",
+		"prettier": "3.3.3",
+		"typedoc": "~0.26.4",
+		"typescript": "5.5.3",
+		"typescript-eslint": "8.0.0-alpha.47"
+	},
+	"scripts": {
+		"build": "pnpm build:lib && pnpm build:docs",
+		"build:lib": "tsc",
+		"build:docs": "typedoc src --plugin ./dist/index.js --theme typedoc-github-theme",
+		"lint": "pnpm lint:format && pnpm lint:code",
+		"lint:code": "eslint .",
+		"lint:format": "prettier --check ."
+	},
+	"engines": {
+		"node": ">=18.0.0"
+	},
+	"keywords": [
+		"typedoc-theme",
+		"typedoc-github-theme"
+	]
+}
