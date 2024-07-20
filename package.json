@@ -1,7 +1,7 @@
 {
 	"name": "typedoc-github-theme",
-	"description": "",
 	"version": "0.0.0",
+	"description": "Elegant and seamless look and feel for your TypeScript documentation on GitHub Pages",
 	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
 	"repository": "https://github.com/KillerJulian/typedoc-github-theme",
