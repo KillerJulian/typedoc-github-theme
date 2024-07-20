@@ -1,9 +1,9 @@
 # Ignore everything by default
 *
 
-# Include the required sources
-!dist/
-!src/assets/
+# Include specific directories and files
+!dist/**/*
+!src/assets/**/*
 !LICENSE
 !package.json
 !README.md
