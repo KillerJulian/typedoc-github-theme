@@ -21,6 +21,17 @@ export class GitHubTheme extends DefaultTheme {
 				<link rel="stylesheet" href={event.relativeURL('assets/typedoc-github-style.css')} />
 			</>
 		));
+
+		// set the Shiki theme
+		this.application.on('bootstrapEnd', () => {
+			if (!this.application.options.isSet('lightHighlightTheme')) {
+				this.application.options.setValue('lightHighlightTheme', 'github-light-default');
+			}
+
+			if (!this.application.options.isSet('darkHighlightTheme')) {
+				this.application.options.setValue('darkHighlightTheme', 'github-dark-default');
+			}
+		});
 	}
 
 	getRenderContext(pageEvent: PageEvent<Reflection>) {
