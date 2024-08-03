@@ -8,24 +8,24 @@
 	"homepage": "https://killerjulian.github.io/typedoc-github-theme/",
 	"author": "KillerJulian <info@killerjulian.de>",
 	"license": "MIT",
-	"packageManager": "pnpm@9.5.0",
+	"packageManager": "pnpm@9.6.0",
 	"dependencies": {},
 	"peerDependencies": {
-		"typedoc": "^0.26.4"
+		"typedoc": "^0.26.0"
 	},
 	"devDependencies": {
-		"@types/node": "^18.19.41",
-		"eslint": "9.7.0",
+		"@types/node": "^18.19.43",
+		"eslint": "9.8.0",
 		"eslint-config-prettier": "9.1.0",
 		"prettier": "3.3.3",
-		"typedoc": "~0.26.4",
-		"typescript": "5.5.3",
-		"typescript-eslint": "8.0.0-alpha.47"
+		"typedoc": "~0.26.5",
+		"typescript": "5.5.4",
+		"typescript-eslint": "8.0.0"
 	},
 	"scripts": {
 		"build": "pnpm build:lib && pnpm build:docs",
 		"build:lib": "tsc",
-		"build:docs": "typedoc src --plugin ./dist/index.js --theme typedoc-github-theme",
+		"build:docs": "typedoc src --plugin ./dist/index.js",
 		"lint": "pnpm lint:format && pnpm lint:code",
 		"lint:code": "eslint .",
 		"lint:format": "prettier --check ."
