@@ -14,6 +14,7 @@
 
 :root,
 :root[data-theme='dark'] {
+	--color-scheme: dark;
 	--color-background: #0d1117;
 	--color-text: #e6edf3;
 	--color-text-aside: #8d96a0;
@@ -28,6 +29,7 @@
 }
 
 :root[data-theme='light'] {
+	--color-scheme: light;
 	--color-background: #ffffff;
 	--color-text: #1f2328;
 	--color-text-aside: #636c76;
@@ -46,7 +48,15 @@
  */
 
 * {
-	scrollbar-color: var(--color-text-aside);
+	scrollbar-color: var(--color-text-aside) var(--color-border);
+}
+
+*::-webkit-scrollbar-track {
+	background: var(--color-border);
+}
+
+*::-webkit-scrollbar-thumb {
+	background: var(--color-text-aside);
 }
 
 /*
@@ -92,6 +102,10 @@ a,
 
 .tsd-anchor-icon {
 	color: var(--color-text);
+}
+
+.tsd-sources a {
+	color: var(--color-accent);
 }
 
 /*
@@ -241,6 +255,10 @@ code.tsd-tag {
 	border: unset;
 }
 
+.tsd-description code {
+	background-color: var(--color-code-background);
+}
+
 /*
  * Topbar
  */
@@ -357,6 +375,10 @@ footer {
 
 .tsd-description .tsd-signatures .tsd-signature {
 	border-radius: 6px;
+}
+
+.tsd-full-hierarchy:not(:last-child) {
+	border-bottom: var(--color-border);
 }
 
 /*
