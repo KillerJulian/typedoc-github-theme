@@ -27,8 +27,12 @@ yarn add typedoc-github-theme
 **Use the theme when generating your documentation:**
 
 ```text
-typedoc src/** */ --plugin typedoc-github-theme --theme typedoc-github-theme
+npx typedoc src --plugin typedoc-github-theme
 ```
+
+> [!NOTE]
+> This plugin fills the following options if they have not been defined by the user:
+> [`theme`](https://typedoc.org/options/output/#theme), [`lightHighlightTheme`](https://typedoc.org/options/output/#lighthighlighttheme), [`darkHighlightTheme`](https://typedoc.org/options/output/#darkhighlighttheme)
 
 ---
 
