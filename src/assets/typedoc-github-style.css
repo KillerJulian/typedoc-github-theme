@@ -8,10 +8,10 @@
 	--light-color-background-secondary: #f6f8fa;
 	--light-color-background-navbar: #f6f8fa;
 
-	--light-color-accent: #d0d7de;
+	--light-color-accent: #eff2f5;
 
 	--light-color-text: #1f2328;
-	--light-color-text-aside: #636c76;
+	--light-color-text-aside: #59636e;
 
 	--light-color-link: #0969da;
 
@@ -20,13 +20,13 @@
 
 	/* GitHub "Dark default" */
 	--dark-color-background: #0d1117;
-	--dark-color-background-secondary: #161b22;
-	--dark-color-background-navbar: #000000;
+	--dark-color-background-secondary: #151b23;
+	--dark-color-background-navbar: #010409;
 
-	--dark-color-accent: #30363d;
+	--dark-color-accent: #262c36;
 
-	--dark-color-text: #e6edf3;
-	--dark-color-text-aside: #8d96a0;
+	--dark-color-text: #f0f6fc;
+	--dark-color-text-aside: #9198a1;
 
 	--dark-color-link: #4493f8;
 
