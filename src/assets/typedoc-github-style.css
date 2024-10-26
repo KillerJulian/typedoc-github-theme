@@ -99,18 +99,28 @@ a,
 .tsd-kind-class {
 	color: var(--color-link);
 	text-decoration: underline;
+	text-underline-offset: 3px;
 }
 
-.tsd-index-link {
+.tsd-index-link,
+.tsd-page-navigation a:hover {
 	text-decoration: none;
 }
 
 .tsd-index-link:hover {
 	text-decoration: underline;
+	text-underline-offset: 3px;
 }
 
-.tsd-sources a {
+a code,
+.tsd-sources a,
+.tsd-page-navigation a:hover {
 	color: var(--color-link);
+}
+
+a.external[target='_blank'] {
+	background-image: none;
+	padding-right: 0px;
 }
 
 /*
