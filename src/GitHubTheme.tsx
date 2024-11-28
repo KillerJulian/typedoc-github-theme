@@ -6,11 +6,11 @@ import { fileURLToPath } from 'url';
 import { GitHubThemeContext } from './GitHubThemeContext.js';
 
 export class GitHubTheme extends DefaultTheme {
-	initialize() {
-		super.initialize();
+	constructor(renderer: Renderer) {
+		super(renderer);
 
 		// copy the complete assets
-		this.application.renderer.on(RendererEvent.END, () => {
+		renderer.on(RendererEvent.END, () => {
 			const from = resolve(dirname(fileURLToPath(import.meta.url)), '../src/assets/');
 			const to = resolve(this.application.options.getValue('out'), 'assets/');
 
@@ -18,14 +18,14 @@ export class GitHubTheme extends DefaultTheme {
 		});
 
 		// link the css file
-		this.application.renderer.hooks.on('head.end', (event) => (
+		renderer.hooks.on('head.end', (event) => (
 			<>
 				<link rel="stylesheet" href={event.relativeURL('assets/typedoc-github-style.css')} />
 			</>
 		));
 
 		// set the Shiki theme
-		this.application.on('bootstrapEnd', () => {
+		renderer.application.on('bootstrapEnd', () => {
 			if (!this.application.options.isSet('lightHighlightTheme')) {
 				this.application.options.setValue('lightHighlightTheme', 'github-light-default');
 			}

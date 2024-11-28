@@ -12,14 +12,14 @@
 	"packageManager": "pnpm@9.14.3",
 	"dependencies": {},
 	"peerDependencies": {
-		"typedoc": "^0.26.10"
+		"typedoc": "^0.27.1"
 	},
 	"devDependencies": {
 		"@types/node": "^18.19.67",
 		"eslint": "9.15.0",
 		"eslint-config-prettier": "9.1.0",
-		"typedoc": "~0.26.10",
 		"prettier": "3.4.1",
+		"typedoc": "~0.27.1",
 		"typescript": "5.7.2",
 		"typescript-eslint": "8.16.0"
 	},
