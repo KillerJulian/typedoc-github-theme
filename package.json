@@ -4,6 +4,7 @@
 	"version": "0.1.2",
 	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
+	"type": "module",
 	"repository": "https://github.com/KillerJulian/typedoc-github-theme",
 	"homepage": "https://killerjulian.github.io/typedoc-github-theme/",
 	"author": "KillerJulian <info@killerjulian.de>",

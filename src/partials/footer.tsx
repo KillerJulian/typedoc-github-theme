@@ -1,5 +1,5 @@
 import { JSX } from 'typedoc';
-import { GitHubThemeContext } from '../GitHubThemeContext';
+import type { GitHubThemeContext } from '../GitHubThemeContext.js';
 
 export function footer(context: GitHubThemeContext) {
 	return (

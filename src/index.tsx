@@ -1,5 +1,5 @@
-import { Application } from 'typedoc';
-import { GitHubTheme } from './GitHubTheme';
+import type { Application } from 'typedoc';
+import { GitHubTheme } from './GitHubTheme.js';
 
 /**
  * Called by TypeDoc when loading this theme as a plugin

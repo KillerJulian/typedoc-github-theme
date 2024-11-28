@@ -1,7 +1,9 @@
 import { cpSync } from 'fs';
-import { resolve } from 'path';
-import { DefaultTheme, JSX, PageEvent, Reflection, RendererEvent } from 'typedoc';
-import { GitHubThemeContext } from './GitHubThemeContext';
+import { dirname, resolve } from 'path';
+import type { PageEvent, Reflection, Renderer } from 'typedoc';
+import { DefaultTheme, JSX, RendererEvent } from 'typedoc';
+import { fileURLToPath } from 'url';
+import { GitHubThemeContext } from './GitHubThemeContext.js';
 
 export class GitHubTheme extends DefaultTheme {
 	initialize() {
@@ -9,7 +11,7 @@ export class GitHubTheme extends DefaultTheme {
 
 		// copy the complete assets
 		this.application.renderer.on(RendererEvent.END, () => {
-			const from = resolve(__dirname, '../src/assets/');
+			const from = resolve(dirname(fileURLToPath(import.meta.url)), '../src/assets/');
 			const to = resolve(this.application.options.getValue('out'), 'assets/');
 
 			cpSync(from, to, { recursive: true });

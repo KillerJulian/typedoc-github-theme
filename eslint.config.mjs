@@ -27,7 +27,10 @@ export default tseslint.config(
 			yoda: 'error',
 			'linebreak-style': ['error', 'unix'],
 			'space-infix-ops': 'error',
-			'space-unary-ops': 'error'
+			'space-unary-ops': 'error',
+			'@typescript-eslint/consistent-type-imports': 'error',
+			'@typescript-eslint/consistent-type-exports': 'error',
+			'@typescript-eslint/no-import-type-side-effects': 'error'
 		}
 	},
 	prettierConfig
