@@ -18,6 +18,12 @@
 	--light-color-warning-border: #f7ebba;
 	--light-color-background-warning: #fff8c5;
 
+	--light-color-alert-note: #0969da;
+	--light-color-alert-tip: #1a7f37;
+	--light-color-alert-important: #8250df;
+	--light-color-alert-warning: #9a6700;
+	--light-color-alert-caution: #cf222e;
+
 	/* GitHub "Dark default" */
 	--dark-color-background: #0d1117;
 	--dark-color-background-secondary: #151b23;
@@ -32,6 +38,12 @@
 
 	--dark-color-warning-border: #3a2d12;
 	--dark-color-background-warning: #282215;
+
+	--dark-color-alert-note: #1f6feb;
+	--dark-color-alert-tip: #238636;
+	--dark-color-alert-important: #8957e5;
+	--dark-color-alert-warning: #9e6a03;
+	--dark-color-alert-caution: #da3633;
 
 	/* Link colors */
 	--color-warning-text: var(--color-text);
@@ -95,7 +107,20 @@ h6 {
  * Links
  */
 
-a,
+.tsd-accordion-details a,
+.tsd-accordion a,
+.tsd-page-toolbar a.title {
+	color: var(--color-text);
+	text-decoration: none;
+}
+
+.tsd-accordion-details a:hover,
+.tsd-page-toolbar a.title:hover,
+.tsd-accordion a:hover,
+.tsd-anchor-icon {
+	color: var(--color-text-aside);
+}
+
 .tsd-kind-class {
 	color: var(--color-link);
 	text-decoration: underline;
@@ -121,33 +146,6 @@ a code,
 a.external[target='_blank'] {
 	background-image: none;
 	padding-right: 0px;
-}
-
-/*
- * Lists
- */
-
-ul,
-ol {
-	margin-left: 20px;
-	list-style: disc;
-}
-
-li::marker {
-	color: var(--color-accent);
-}
-
-/*
- * Input fields
- */
-
-input {
-	background-color: var(--color-background-secondary);
-	color: var(--color-text);
-	border: 1px solid var(--color-accent);
-	border-radius: 6px;
-	padding: 8px;
-	width: 100%;
 }
 
 /*
@@ -287,10 +285,6 @@ code.tsd-tag {
 	border-bottom-color: var(--color-accent);
 }
 
-.tsd-page-toolbar a.title:hover {
-	text-decoration: none;
-}
-
 #tsd-search.has-focus {
 	background-color: var(--color-background-navbar);
 }
@@ -303,6 +297,10 @@ code.tsd-tag {
 
 #tsd-search .results li {
 	margin-bottom: 0px;
+}
+
+#tsd-search .results li a {
+	color: var(--color-text);
 }
 
 #tsd-search .results li:hover:not(.no-results) {
@@ -414,31 +412,18 @@ footer p {
  * Fix collapsed margin
  */
 
-.tsd-accordion-summary.tsd-index-summary > h5 {
+.tsd-accordion-summary > h3 {
 	margin-top: 0px;
 	margin-bottom: 0px;
 }
 
-.tsd-panel-group:not([open]) > .tsd-accordion-summary {
+.tsd-page-navigation:not([open]) > .tsd-accordion-summary {
 	margin-bottom: 0px;
 }
 
 /*
  * Fix collapse arrow position
  */
-
-.tsd-accordion-summary:has(svg) > * {
-	display: inline-flex;
-	align-items: center;
-	line-height: normal;
-}
-
-.tsd-accordion-summary > * > svg {
-	padding-top: 0px;
-	position: relative;
-	left: 0px;
-	top: 50%;
-}
 
 .tsd-accordion-summary svg {
 	transition: transform 0.1s ease-in-out;
