@@ -34,7 +34,7 @@ jobs:
         run: pnpm build:lib
 
       - name: 📦 Pack library
-        run: mv $(pnpm pack) package.tgz
+        run: mv "$(pnpm pack | tail -n 1)" package.tgz
 
       - name: ☁️ Publish to NPM
         uses: JS-DevTools/npm-publish@v3
